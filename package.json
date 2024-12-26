@@ -1,5 +1,5 @@
 {
-  "homepage": "https://markclarus1990.github.io/BBQ/",
+  "homepage": "https://markclarus1990.github.io/hmua-admin/",
   "name": "hmua-admin",
   "private": true,
   "version": "0.0.0",
@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@supabase/auth-helpers-react": "^0.5.0",
