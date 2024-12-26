@@ -17,3 +17,7 @@
     margin-left: 250px;
   }
 }
+
+* {
+  font-family: "Roboto", sans-serif; /* Apply the font globally */
+}
