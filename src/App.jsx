@@ -18,6 +18,8 @@ import CALENDAR from "./components/Calendar";
 import AppLayout from "./components/AppLayout.jsx";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import PricingComponent from "./components/PricingComponent.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./components/Dashboard.jsx";
 
 // Create the queryClient instance outside of the component
 const queryClient = new QueryClient({
@@ -31,9 +33,15 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Now wrapping the app with QueryClientProvider */}
-      <ReactQueryDevtools initialIsOpen={false} />
-      <AppLayout />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/hmua-admin" element={<AppLayout />} />
+          <Route path="/hmua-admin/Dashboard" element={<Dashboard />} />
+          <Route path="/hmua-admin/Calendar" element={<CALENDAR />} />
+
+          <Route path="/hmua-admin/Pricing" element={<PricingComponent />} />
+        </Routes>
+      </BrowserRouter>
     </QueryClientProvider>
   );
 }
