@@ -58,7 +58,7 @@ function Dashboard({ signOut }) {
         <h1 className="text-3xl font-semibold mb-4">{activeTab}</h1>
         <div className="bg-white rounded-lg shadow p-6">
           {activeTab === "Events" && navigate("/hmua-admin/Calendar")}
-          {activeTab === "Pricing" && navigate("/hmua-admin/Pricing")}
+          {activeTab === "Pricing" && <PricingComponent />}
         </div>
       </main>
     </div>
