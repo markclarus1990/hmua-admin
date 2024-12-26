@@ -20,8 +20,9 @@ import PricingComponent from "./components/PricingComponent.jsx";
 
 // Initialize Supabase client
 import { createClient } from "@supabase/supabase-js";
-const supabaseUrl = "https://your-project.supabase.co"; // Replace with your Supabase URL
-const supabaseAnonKey = "your-anon-key"; // Replace with your Supabase Anon Key
+const supabaseUrl = "https://markclarus1990.github.io/hmua-admin/"; // Replace with your Supabase URL
+const supabaseAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjdnJhbmJnenZyb2RraWJhcGVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ5MjAwODksImV4cCI6MjA1MDQ5NjA4OX0.mSekUwD18zeKesfxSpFv4SmtfMR3szHNsPGKRUQjK2k"; // Replace with your Supabase Anon Key
 const supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
 
 // Create the queryClient instance outside of the component
