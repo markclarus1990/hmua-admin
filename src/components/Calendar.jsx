@@ -19,20 +19,6 @@ function CALENDAR() {
   const [selectedEvent, setSelectedEvent] = useState(null); // For storing clicked event
   const [isModalOpen, setIsModalOpen] = useState(false); // For modal visibility
 
-  async function googleSignIn() {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        scopes:
-          "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/tasks",
-      },
-    });
-
-    if (error) {
-      alert("Error logging in");
-    }
-  }
-
   async function fetchAllEvents() {
     if (!session || !session.provider_token) {
       alert("Session token is invalid. Please sign in again.");
@@ -40,15 +26,12 @@ function CALENDAR() {
     }
 
     try {
-      const response = await fetch(
-        `https://www.googleapis.com/calendar/v3/calendars/primary/events?singleEvents=true&orderBy=startTime`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${session.provider_token}`,
-          },
-        }
-      );
+      const response = await fetch(import.meta.env.VITE_CALENDAR, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${session.provider_token}`,
+        },
+      });
 
       if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
@@ -128,12 +111,7 @@ function CALENDAR() {
             )}
           </>
         ) : (
-          <button
-            onClick={googleSignIn}
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-          >
-            Sign in with Google
-          </button>
+          ""
         )}
       </div>
     </div>

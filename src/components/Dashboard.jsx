@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import PricingComponent from "./PricingComponent";
 function Dashboard({ signOut }) {
   const tabs = ["Bookings", "Team", "Pricing", "Events"];
   const [isSidebarOpen, setSidebarOpen] = useState(false);
